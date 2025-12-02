@@ -31,7 +31,6 @@
     <script src="script.js"></script>
 </body>
 </html>
-
 /* Archivo: script.js */
 
 function calcularGastos() {
@@ -60,7 +59,6 @@ function calcularGastos() {
         <p>¡Ingresa tus datos reales para tener un mejor control de tus finanzas!</p>
     `;
 }
-
 body {
     font-family: sans-serif;
     background-color: #f4f4f4;
@@ -114,4 +112,4 @@ button:hover {
     background-color: #e9ecef;
     border-radius: 5px;
 }
-Añadir archivo al proyecto
+
