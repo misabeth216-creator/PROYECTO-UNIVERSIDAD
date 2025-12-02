@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Gastos Universitarios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Gastos Universitarios</h1>
+        <p>Estima tus gastos semanales en categorías clave.</p>
+
+        <label for="gasto_comida">Gasto semanal en Comida (€/$):</label>
+        <input type="number" id="gasto_comida" min="0" value="0" step="any">
+
+        <label for="gasto_pasaje">Gasto semanal en Pasaje/Transporte Público (€/$):</label>
+        <input type="number" id="gasto_pasaje" min="0" value="0" step="any">
+        
+        <label for="gasto_gasolina">Gasto semanal en Gasolina (€/$):</label>
+        <input type="number" id="gasto_gasolina" min="0" value="0" step="any">
+
+        <label for="pago_universidad_semanal">Pago Semanal Prorrateado de Universidad (€/$):</label>
+        <input type="number" id="pago_universidad_semanal" min="0" value="0" step="any">
+
+        <button onclick="calcularGastos()">Calcular Gastos</button>
+
+        <div id="resultado">
+            <!-- El resultado se mostrará aquí -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+/* Archivo: script.js */
+
+function calcularGastos() {
+    // 1. Obtener los datos ingresados por el usuario
+    // Usamos parseFloat para asegurarnos de que los valores sean números
+    const gastoComida = parseFloat(document.getElementById('gasto_comida').value) || 0;
+    const gastoPasaje = parseFloat(document.getElementById('gasto_pasaje').value) || 0;
+    const gastoGasolina = parseFloat(document.getElementById('gasto_gasolina').value) || 0;
+    const pagoUniversidad = parseFloat(document.getElementById('pago_universidad_semanal').value) || 0;
+
+    // 2. Realizar la suma de los gastos totales
+    const totalGastos = gastoComida + gastoPasaje + gastoGasolina + pagoUniversidad;
+
+    // 3. Mostrar el resultado al usuario
+    const resultadoDiv = document.getElementById('resultado');
+    resultadoDiv.innerHTML = `
+        <h2>Tu Gasto Semanal Estimado:</h2>
+        <p>Total de Gastos: <strong>${totalGastos.toFixed(2)} €/$</strong></p>
+        <p>Desglose:</p>
+        <ul>
+            <li>Comida: ${gastoComida.toFixed(2)} €/$</li>
+            <li>Pasaje: ${gastoPasaje.toFixed(2)} €/$</li>
+            <li>Gasolina: ${gastoGasolina.toFixed(2)} €/$</li>
+            <li>Universidad: ${pagoUniversidad.toFixed(2)} €/$</li>
+        </ul>
+        <p>¡Ingresa tus datos reales para tener un mejor control de tus finanzas!</p>
+    `;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.container {
+    background: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Importante para que el padding no afecte el ancho */
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #28a745; /* Verde ecológico */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#resultado {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+}
+Añadir archivo al proyecto
